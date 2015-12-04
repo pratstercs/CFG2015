@@ -1,3 +1,6 @@
+import java.util.Date;
+import java.util.Map;
+
 package stores;
 
 /**
@@ -7,15 +10,14 @@ package stores;
 public class LoggedIn {
     boolean loggedin=false;
     
-    String Username=null;
-    String firstName=null;
-    String lastName=null;
-    String email=null;
-    String bio=null;
-    String[] address = {"","",""};
-    String encodedAddress = null;
+    String username=null;
     private String encodedPass = null;
-    private java.util.UUID profilePic = java.util.UUID.fromString("108947a0-7658-11e5-9006-0cd2925123f0");
+    String name=null;
+    int contactTypes;
+    String email=null;
+    int[] timeList;
+    String bio=null;
+    
     
     /**
      * Constructor
@@ -30,17 +32,11 @@ public class LoggedIn {
     public void clearData() {
         loggedin=false;
     
-        Username=null;
-        firstName=null;
-        lastName=null;
+        username=null;
+        name=null;
         email=null;
         bio = null;
-        encodedAddress = null;
         encodedPass = null;
-        
-        for(String row : address) {
-            row = "";
-        }
     }
     
     /**
