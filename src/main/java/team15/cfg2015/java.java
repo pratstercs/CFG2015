@@ -12,5 +12,5 @@ import com.datastax.driver.core.Cluster;
  * @author Phil
  */
 public class java {
-    
+    Cluster cluster = DBHost.getCluster();
 }
