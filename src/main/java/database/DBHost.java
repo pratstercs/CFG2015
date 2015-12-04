@@ -1,5 +1,6 @@
-package team15.cfg2015;
+package database;
 
+import database.Keyspaces;
 import com.datastax.driver.core.*;
 
 import java.util.Iterator;

@@ -5,6 +5,7 @@
  */
 package team15.cfg2015;
 
+import database.DBHost;
 import com.datastax.driver.core.Cluster;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;

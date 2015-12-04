@@ -1,4 +1,4 @@
-package team15.cfg2015;
+package database;
 
 import com.datastax.driver.core.*;
 
@@ -15,15 +15,18 @@ public final class Keyspaces {
     public static void SetUpKeySpaces(Cluster c) {
         try {
             String createkeyspace = "create keyspace if not exists cfgteam15  WITH replication = {'class':'SimpleStrategy', 'replication_factor':1}";
-            String CreateUserTable = "CREATE TABLE if not exists cfgteam15.user ("
+            String CreateUserTable = "CREATE TABLE if not exists cfgteam15.users ("
                     + " username varchar, \n"
                     + " name varchar, \n"
                     + " contact int, \n"
-                    + " times list<timestamp>, \n" //2D int array
+                    + " email text, \n"
+                    + " times list<int>, \n" //2D int array
                     + " anniversaries list<timestamp>, \n"
                     + " condition text, \n"
                     + " preferences list<text>, \n"
                     + " urgent boolean, \n"
+                    + " bio text, \n"
+                    + " secChecks text, \n" //DBS checks
                     + " PRIMARY KEY (username)"
                     + ")";
             String CreateCallLog = "CREATE TABLE if not exists cfgteam15.callLog (\n"
@@ -34,12 +37,13 @@ public final class Keyspaces {
                     + "comments text,\n"
                     + "PRIMARY KEY (callID)\n"
                     + ");";
-            String CreateMessages = "CREATE TYPE if not exists cfgteam15.Messages (\n"
+            String CreateMessages = "CREATE TYPE if not exists cfgteam15.messages (\n"
                     + "      messageID uuid,\n"
                     + "      fromUser varchar,\n"
                     + "      toUser varchar,\n"
                     + "      subject text,\n"
-                    + "      body text\n"
+                    + "      body text,\n"
+                    + "      isRead boolean\n"
                     + "  );";
             
             Session session = c.connect();
