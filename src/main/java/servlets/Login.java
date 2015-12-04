@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import database.DBHost;
 import stores.User;
-//import uk.ac.dundee.computing.aec.instagrim.stores.LoggedIn;
+import stores.LoggedIn;
 
 /**
  *
@@ -56,7 +56,7 @@ public class Login extends HttpServlet {
 	    rd.forward(request,response);
             
         }else{
-            response.sendRedirect("/InstagrimPJP/login.jsp");
+            response.sendRedirect("login.jsp");
         }
         
     }
