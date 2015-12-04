@@ -6,11 +6,30 @@
 package team15.cfg2015;
 
 import com.datastax.driver.core.Cluster;
+import java.io.IOException;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  *
  * @author Phil
  */
-public class java {
+@WebServlet(name = "Test", urlPatterns = {"/Test"})
+public class java extends HttpServlet {
     Cluster cluster = DBHost.getCluster();
+
+    public void init(ServletConfig config) throws ServletException {
+        cluster = DBHost.getCluster();
+    }
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher rd = request.getRequestDispatcher("/works.jsp");
+        rd.forward(request, response);
+    }
 }
