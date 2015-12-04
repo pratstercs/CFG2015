@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "Test", urlPatterns = {"/Test"})
 public class java extends HttpServlet {
-    Cluster cluster = DBHost.getCluster();
+    Cluster cluster = null;
 
     public void init(ServletConfig config) throws ServletException {
         cluster = DBHost.getCluster();
@@ -29,7 +29,9 @@ public class java extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher rd = request.getRequestDispatcher("/works.jsp");
+        cluster = DBHost.getCluster();
+        
+        RequestDispatcher rd = request.getRequestDispatcher("/");
         rd.forward(request, response);
     }
 }

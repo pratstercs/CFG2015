@@ -14,8 +14,8 @@ public final class Keyspaces {
      */
     public static void SetUpKeySpaces(Cluster c) {
         try {
-            String createkeyspace = "create keyspace if not exists cfg-team15  WITH replication = {'class':'SimpleStrategy', 'replication_factor':1}";
-            String CreateUserTable = "CREATE TABLE if not exists cfg-team15.user ("
+            String createkeyspace = "create keyspace if not exists cfgteam15  WITH replication = {'class':'SimpleStrategy', 'replication_factor':1}";
+            String CreateUserTable = "CREATE TABLE if not exists cfgteam15.user ("
                     + " username varchar, \n"
                     + " name varchar, \n"
                     + " contact int, \n"
@@ -23,21 +23,21 @@ public final class Keyspaces {
                     + " anniversaries list<timestamp>, \n"
                     + " condition text, \n"
                     + " preferences list<text>, \n"
-                    + " urgent bool, \n"
+                    + " urgent boolean, \n"
                     + " PRIMARY KEY (username)"
                     + ")";
-            String CreateCallLog = "CREATE TABLE if not exists cfg-team15.callLog (\n"
+            String CreateCallLog = "CREATE TABLE if not exists cfgteam15.callLog (\n"
                     + "callID uuid,\n"
                     + "caller varchar,\n"
                     + "callee varchar,\n"
                     + "time timestamp,\n"
-                    + "text comments"
+                    + "comments text,\n"
                     + "PRIMARY KEY (callID)\n"
-                    + ") WITH CLUSTERING ORDER BY (time desc);";
-            String CreateMessages = "CREATE TYPE if not exists cfg-team15.Messages (\n"
+                    + ");";
+            String CreateMessages = "CREATE TYPE if not exists cfgteam15.Messages (\n"
                     + "      messageID uuid,\n"
-                    + "      from varchar,\n"
-                    + "      to varchar,\n"
+                    + "      fromUser varchar,\n"
+                    + "      toUser varchar,\n"
                     + "      subject text,\n"
                     + "      body text\n"
                     + "  );";
@@ -50,9 +50,9 @@ public final class Keyspaces {
                         statement);
                 ResultSet rs = session
                         .execute(boundStatement);
-                System.out.println("created cfg-team15 ");
+                System.out.println("created cfgteam15 ");
             } catch (Exception et) {
-                System.out.println("Can't create cfg-team15 " + et);
+                System.out.println("Can't create cfgteam15 " + et);
             }
 
             //now add some column families 
