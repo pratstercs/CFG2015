@@ -11,6 +11,7 @@ import com.datastax.driver.core.PreparedStatement;
 import com.datastax.driver.core.ResultSet;
 import com.datastax.driver.core.Row;
 import com.datastax.driver.core.Session;
+import java.util.ArrayList;
 
 /**
  *
@@ -54,6 +55,32 @@ public class User {
     public boolean getType(String username) {
         //@TODO
         return true;
+    }
+    
+    public ArrayList<String> getInterests(String username) {
+        ArrayList<String> toReturn = new ArrayList();
+        
+        cluster = database.DBHost.getCluster();
+        
+        Session session = cluster.connect("cfgteam15");
+        PreparedStatement ps = session.prepare("select preferences from users where username =?");
+        ResultSet rs = null;
+        BoundStatement boundStatement = new BoundStatement(ps);
+        rs = session.execute( // this is where the query is executed
+                boundStatement.bind( // here you are binding the 'boundStatement'
+                        username));
+        
+        for (Row row : rs) {
+            String str = row.toString();
+            String[] result = str.substring(str.lastIndexOf("[")+1, str.indexOf("]")).split(",");
+            for(String str1 : result) {
+                String str2 = str1.replace("[", "");
+                String str3 = str2.replace(" ", "");
+                toReturn.add(str3);
+            }
+        }
+        
+        return toReturn;
     }
     
         /**
@@ -115,7 +142,7 @@ public class User {
         //convert result database to single row
         Row row = rs.one();
         //set values from returned data
-        lg.setUsername(row.getString("login"));
+        lg.setUsername(row.getString("username"));
         lg.setName(row.getString("name"));
         lg.setEmail(row.getString("email"));        
         
