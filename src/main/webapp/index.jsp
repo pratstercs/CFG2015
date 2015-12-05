@@ -4,6 +4,7 @@
     Author     : Phil
 --%>
 
+<%@ page import="java.util.ArrayList" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,5 +14,15 @@
     </head>
     <body>
         <h1>Go Team 15!</h1>
+        <%
+            ArrayList<String> al = (ArrayList<String>)session.getAttribute("matches");
+            for(String str : al) {
+        %>
+            <table><tr>
+            <%=str%>
+            </tr></table>
+            <%
+            }
+        %>
     </body>
 </html>
