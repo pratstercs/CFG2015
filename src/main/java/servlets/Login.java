@@ -46,7 +46,7 @@ public class Login extends HttpServlet {
         
         User us=new User();
         us.setCluster(cluster);
-        LoggedIn lg  = us.IsValidUser(username, password);
+        LoggedIn lg = us.IsValidUser(username, password);
         HttpSession session=request.getSession();
         System.out.println("Session in servlet "+session);
         if (lg.getlogedin()){
