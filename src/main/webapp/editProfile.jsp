@@ -65,7 +65,6 @@
             <!-- left column -->
             <div class="col-md-4 col-sm-6 col-xs-12">
               <div class="text-center">
-                  <a href="<%=picLocation%>" ><img src="<%=thumbLocation%>" class="avatar img-circle img-thumbnail" alt="avatar"></a>
               </div>
             </div>
             <!-- edit form column -->
@@ -81,38 +80,13 @@
                 <div class="form-group">
                   <label class="col-lg-3 control-label">First name:</label>
                   <div class="col-lg-8">
-                    <input name="firstName" class="form-control" value="<%=firstName%>" type="text">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-lg-3 control-label">Last name:</label>
-                  <div class="col-lg-8">
-                    <input name="lastName" class="form-control" value="<%=lastName%>" type="text">
+                    <input name="firstName" class="form-control" value="<%=name%>" type="text">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Email:</label>
                   <div class="col-lg-8">
                     <input name="email" class="form-control" value="<%=email%>" type="text">
-                  </div>
-                </div>
-                  
-                <div class="form-group">
-                  <label class="col-md-3 control-label">Street:</label>
-                  <div class="col-md-8">
-                    <input name="street" id="street" class="form-control" value="<%=address[0]%>" type="text">
-                  </div>
-                </div>
-                  <div class="form-group">
-                  <label class="col-md-3 control-label">City:</label>
-                  <div class="col-md-8">
-                    <input name="city" id="city" class="form-control" value="<%=address[1]%>" type="text">
-                  </div>
-                </div>
-                  <div class="form-group">
-                  <label class="col-md-3 control-label">Postcode:</label>
-                  <div class="col-md-8">
-                    <input name="postcode" id="postcode" class="form-control" value="<%=address[2]%>" type="text">
                   </div>
                 </div>
                   
