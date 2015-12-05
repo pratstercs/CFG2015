@@ -61,10 +61,11 @@ public class Call extends HttpServlet {
 
       // Full path to the end point that will respond with the call TwiML
       String path =
-          request.getRequestURL().toString().replace(request.getRequestURI(), "") + "/connect";
+          request.getRequestURL().toString().replace(request.getRequestURI(), "") + "/CFG2015-main/twiml.xml";
       params.put("From", twilioNumber);
       params.put("To", phoneNumber);
       params.put("Url", path);
+      response.getOutputStream().write(getJSONResponse(path).getBytes());
 
       try {
         client.getAccount().getCallFactory().create(params);
