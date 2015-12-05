@@ -31,7 +31,7 @@ public class User {
         String encoded = org.apache.commons.codec.digest.DigestUtils.sha1Hex(Password); //encrypts password in SHA1
 
         Session session = cluster.connect("cfgteam15");
-        PreparedStatement ps = session.prepare("insert into userprofiles (login,password,email) Values(?,?,?)");
+        PreparedStatement ps = session.prepare("insert into users (login,password,email) Values(?,?,?)");
        
         BoundStatement boundStatement = new BoundStatement(ps);
         ResultSet rs = session.execute( boundStatement.bind( username,encoded,email) );
