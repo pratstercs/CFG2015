@@ -2,7 +2,7 @@ package matching;
 
 public class Preference {
     private char gender;
-    private Couple age;
+    private int age;
     
     public char getGender() {
    	 return gender;
@@ -10,10 +10,10 @@ public class Preference {
     public void setGender(char gender) {
    	 this.gender = gender;
     }
-    public Couple getAge() {
+    public int getAge() {
    	 return age;
     }
-    public void setAge(Couple age) {
+    public void setAge(int age) {
    	 this.age = age;
     }
     
