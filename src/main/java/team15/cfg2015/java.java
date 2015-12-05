@@ -15,6 +15,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import javax.servlet.http.HttpSession;
+import stores.User;
 
 /**
  *
@@ -32,7 +35,17 @@ public class java extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         cluster = DBHost.getCluster();
         
-        RequestDispatcher rd = request.getRequestDispatcher("/");
+        User us = new User();
+        ArrayList<String> a = us.getInterests("a");
+        ArrayList<String> b = us.getInterests("b");
+        ArrayList<String> c = new ArrayList<String>();
+        
+        c = matching.MatchingImp.commonInterestsList(a, b, c);
+        
+        HttpSession session=request.getSession();
+        session.setAttribute("matches", c);
+            
+        RequestDispatcher rd = request.getRequestDispatcher("/CFG2015/index.jsp");
         rd.forward(request, response);
     }
 }
