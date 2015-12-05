@@ -95,7 +95,7 @@ public class User {
         String encoded = org.apache.commons.codec.digest.DigestUtils.sha1Hex(Password); //encrypts password in SHA1
         
         Session session = cluster.connect("cfgteam15");
-        PreparedStatement ps = session.prepare("select password from users where username =?");
+        PreparedStatement ps = session.prepare("select * from users where username =?");
         ResultSet rs = null;
         BoundStatement boundStatement = new BoundStatement(ps);
         rs = session.execute( // this is where the query is executed
@@ -114,6 +114,7 @@ public class User {
                     toReturn.setUsername(username);
                     toReturn.setPassword(encoded);
                     toReturn.setInterests(getInterests(username));
+                    toReturn.setBio(row.getString("bio"));
                     LoggedIn newlg = getUserData(toReturn);
                     newlg.setLoggedin();
                     return newlg;
@@ -147,6 +148,7 @@ public class User {
         lg.setName(row.getString("name"));
         lg.setEmail(row.getString("email"));
         lg.setInterests(getInterests(username));
+        lg.setBio(row.getString("bio"));
         
         session.close();
         

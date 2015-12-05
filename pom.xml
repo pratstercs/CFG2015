@@ -4,9 +4,8 @@
 
     <groupId>team-15</groupId>
     <artifactId>CFG2015</artifactId>
-    <version>main</version>
     <packaging>war</packaging>
-
+    <version>1.0</version>
     <name>CFG2015</name>
 
     <properties>

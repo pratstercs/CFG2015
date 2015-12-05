@@ -1,6 +1,5 @@
 package twilio;
 
-import twilio.UndefinedEnvironmentVariableException;
 
 import java.util.Map;
 

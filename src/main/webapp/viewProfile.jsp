@@ -46,6 +46,15 @@
                 interestList = interestList.substring(0, interestList.length() -2);
             }
             
+            String profilePic;
+            if (username.compareTo("a") == 0) {
+                profilePic = "/CFG2015/assets/mrd.jpg";
+            }
+            else {
+                profilePic = "/CFG2015/assets/blank.png";
+            }
+            
+            String bio = lg.getBio();
         %>
         <a href="/CFG2015/"><h1>Age UK</h1></a>
         <table>
@@ -61,7 +70,7 @@
                                     <div class="panel-body">
                                         <div class="row">
                                             <div class="col-md-3 col-lg-3 " align="center">
-                                                <a href="/CFG2015/assets/blank.png"><img alt="Profile Picture" src="/CFG2015/assets/blank.png" class="img-circle img-responsive"></a>
+                                                <a href="/CFG2015/assets/blank.png"><img alt="Profile Picture" src="<%=profilePic%>" class="img-circle img-responsive"></a>
                                             </div>
                                             <div class=" col-md-9 col-lg-9 "> 
                                                 <table class="table table-user-information">
@@ -79,10 +88,16 @@
                                                             <td>Interests</td>
                                                             <td><%=interestList%></td>
                                                         </tr>
+                                                        <tr>
+                                                            <td>About me:</td>
+                                                            <td><%=bio%></td>
+                                                        </tr>
                                                             
                                                     </tbody>
                                                 </table>
-                                                    <span class="pull-right"><a href="/CFG2015/Images/<%=username%>/" class="btn btn-primary">Call me!</a></span>
+                                                <form method="POST" action="/CFG2015/call">
+                                                    <span class="pull-right"><button class="btn btn-lg btn-primary btn-block" type="submit">Call me!</button></span>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>

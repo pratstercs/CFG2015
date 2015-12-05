@@ -91,4 +91,11 @@ public class LoggedIn {
     public ArrayList<String> getInterests() {
         return interests;
     }
+    
+    public void setBio(String newBio) {
+        bio = newBio;
+    }
+    public String getBio() {
+        return bio;
+    }
 }
