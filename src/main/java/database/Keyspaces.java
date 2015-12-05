@@ -17,6 +17,7 @@ public final class Keyspaces {
             String createkeyspace = "create keyspace if not exists cfgteam15  WITH replication = {'class':'SimpleStrategy', 'replication_factor':1}";
             String CreateUserTable = "CREATE TABLE if not exists cfgteam15.users ("
                     + " username varchar, \n"
+                    + " password varchar, \n"
                     + " name varchar, \n"
                     + " contact int, \n"
                     + " email text, \n"
