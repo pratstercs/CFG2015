@@ -14,7 +14,7 @@
     </head>
     <body>  
         <%
-            String username = "";
+             String username = "";
             String name = "";
             String email = "";
 
