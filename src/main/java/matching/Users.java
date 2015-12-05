@@ -11,7 +11,8 @@ import javax.servlet.http.HttpSession;
 
 public class Users {
     
-    private String name;
+    private static final ArrayList<Integer> points = null;
+	private String name;
     private int age;
     private boolean [] contact;
     private ArrayList<String> interests;
@@ -121,6 +122,10 @@ public class Users {
     public void setPreviousContact(ArrayList<Users> previousContact) {
    	 this.previousContacts = previousContact;
     }
+	public ArrayList<Integer> getPoints() {
+		// TODO Auto-generated method stub
+		return this.points;
+	}
  
 //    public boolean isFav(Users old){
 //   	 

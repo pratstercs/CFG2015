@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 
 
 public class Users {
-    
+    pivate ArrayList<Integers> points;
     private String name;
     private int age;
     private boolean [] contact;
@@ -35,7 +35,7 @@ public class Users {
     public Users(String name, int age, boolean[] contact,
    		 ArrayList<String> interests, Times time, Date anniversary,
    		 String condition, ArrayList<Users> previousContacts,
-   		 ArrayList<Users> favContacts, Preference preference, String bio) {
+   		 ArrayList<Users> favContacts, Preference preference, String bio,ArrayList<Integers> points) {
    	 super();
    	 this.name = name;
    	 this.age = age;
@@ -48,6 +48,7 @@ public class Users {
    	 this.favContacts = favContacts;
    	 this.preference = preference;
    	 this.bio = bio;
+   	 this.points = points;
     }
     public void setPreviousContacts(ArrayList<Users> previousContacts) {
    	 this.previousContacts = previousContacts;
@@ -57,6 +58,9 @@ public class Users {
    	 return age;
     }
 
+    public ArrayList<Integer> getPoints() {
+    	return this.points;
+    }
     public void setAge(int age) {
    	 this.age = age;
     }

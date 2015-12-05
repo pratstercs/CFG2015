@@ -1,5 +1,5 @@
 package database;
-
+ 
 import com.datastax.driver.core.*;
 
 public final class Keyspaces {
