@@ -51,6 +51,6 @@ public class Register extends HttpServlet {
         us.setCluster(cluster);
         us.RegisterUser(username, password, email);
         
-	response.sendRedirect("/login.jsp");
+	response.sendRedirect("/CFG2015/login.jsp");
     }
 }

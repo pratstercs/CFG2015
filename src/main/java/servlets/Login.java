@@ -56,7 +56,7 @@ public class Login extends HttpServlet {
 	    rd.forward(request,response);
             
         }else{
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("/CFG2015/login.jsp");
         }
         
     }
