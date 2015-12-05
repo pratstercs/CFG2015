@@ -150,4 +150,8 @@ public class User {
         
         return lg;
     }
+    
+    public static String encodePass(String pass) {
+        return org.apache.commons.codec.digest.DigestUtils.sha1Hex(pass); //encrypts password in SHA1
+    }
 }

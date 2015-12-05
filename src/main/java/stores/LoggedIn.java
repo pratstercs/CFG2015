@@ -11,8 +11,8 @@ public class LoggedIn {
     boolean loggedin=false;
     
     String username=null;
-    private String encodedPass = null;
     String name=null;
+    private String encodedPass = null;
     int contactTypes;
     String email=null;
     int[] timeList;
