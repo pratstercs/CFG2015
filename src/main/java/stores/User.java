@@ -113,6 +113,7 @@ public class User {
                 if (StoredPass.compareTo(encoded) == 0) {
                     toReturn.setUsername(username);
                     toReturn.setPassword(encoded);
+                    toReturn.setInterests(getInterests(username));
                     LoggedIn newlg = getUserData(toReturn);
                     newlg.setLoggedin();
                     return newlg;
@@ -144,7 +145,8 @@ public class User {
         //set values from returned data
         lg.setUsername(row.getString("username"));
         lg.setName(row.getString("name"));
-        lg.setEmail(row.getString("email"));        
+        lg.setEmail(row.getString("email"));
+        lg.setInterests(getInterests(username));
         
         session.close();
         
