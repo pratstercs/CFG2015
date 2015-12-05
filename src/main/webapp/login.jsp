@@ -15,11 +15,9 @@
         <link rel="stylesheet" type="text/css" href="assets/Styles.css" />
         <link rel="stylesheet" type="text/css" href="assets/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="assets/login.css" />
-        <title>Instagrim :: Login</title>
+        <title>Login</title>
     </head>
-    <body>
-        <a href="index.jsp"><h1>InstaGrim!</h1></a>
-                
+    <body>      
         <form method="POST" action="Login" class="form-login">
             <h2 class="form-login-header">Log in:</h2>
             

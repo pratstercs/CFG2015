@@ -14,12 +14,10 @@
         <link rel="stylesheet" type="text/css" href="assets/Styles.css" />
         <link rel="stylesheet" type="text/css" href="assets/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="assets/login.css" />
-        <title>Instagrim :: Register</title>
+        <title>Register</title>
         <link rel="shortcut icon" href="assets/favicon.ico" />
     </head>
-    <body>
-        <a href="index.jsp"><h1>InstaGrim!</h1></a>
-                
+    <body>      
         <form method="POST" action="Register" class="form-login">
             <script>
                 //function modified from http://keithscode.com/tutorials/javascript/3-a-simple-javascript-password-validator.html
