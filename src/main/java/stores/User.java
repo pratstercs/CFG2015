@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package stores;
 
 import com.datastax.driver.core.BoundStatement;
@@ -12,6 +7,7 @@ import com.datastax.driver.core.ResultSet;
 import com.datastax.driver.core.Row;
 import com.datastax.driver.core.Session;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -63,7 +59,7 @@ public class User {
         cluster = database.DBHost.getCluster();
         
         Session session = cluster.connect("cfgteam15");
-        PreparedStatement ps = session.prepare("select preferences from users where username =?");
+        PreparedStatement ps = session.prepare("select interests from users where username =?");
         ResultSet rs = null;
         BoundStatement boundStatement = new BoundStatement(ps);
         rs = session.execute( // this is where the query is executed
