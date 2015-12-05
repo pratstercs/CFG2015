@@ -18,10 +18,11 @@ nav {
     float: right;
 }
 
-h1 {
+//@TODO remove
+/*h1 {
     margin: auto;
     width: 361px;
     height: 140px;
     background: url(instagrim.png);
     text-indent: -9999px;
-}
+}*/

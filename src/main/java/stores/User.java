@@ -11,7 +11,6 @@ import com.datastax.driver.core.PreparedStatement;
 import com.datastax.driver.core.ResultSet;
 import com.datastax.driver.core.Row;
 import com.datastax.driver.core.Session;
-import com.datastax.driver.core.UDTValue;
 
 /**
  *
@@ -31,10 +30,10 @@ public class User {
         String encoded = org.apache.commons.codec.digest.DigestUtils.sha1Hex(Password); //encrypts password in SHA1
 
         Session session = cluster.connect("cfgteam15");
-        PreparedStatement ps = session.prepare("insert into users (login,password,email) Values(?,?,?)");
+        PreparedStatement ps = session.prepare("insert into users (username,password,email) Values(?,?,?)");
        
         BoundStatement boundStatement = new BoundStatement(ps);
-        ResultSet rs = session.execute( boundStatement.bind( username,encoded,email) );
+        ResultSet rs = session.execute( boundStatement.bind(username,encoded,email) );
         
         session.close();
         
@@ -69,7 +68,7 @@ public class User {
         String encoded = org.apache.commons.codec.digest.DigestUtils.sha1Hex(Password); //encrypts password in SHA1
         
         Session session = cluster.connect("cfgteam15");
-        PreparedStatement ps = session.prepare("select password from users where login =?");
+        PreparedStatement ps = session.prepare("select password from users where username =?");
         ResultSet rs = null;
         BoundStatement boundStatement = new BoundStatement(ps);
         rs = session.execute( // this is where the query is executed
@@ -108,8 +107,8 @@ public class User {
     public LoggedIn getUserData(LoggedIn lg) throws NullPointerException {
         String username = lg.getUsername();
         
-        Session session = cluster.connect("instagrimPJP");
-        PreparedStatement ps = session.prepare("select * from userprofiles where login =?");
+        Session session = cluster.connect("cfgteam15");
+        PreparedStatement ps = session.prepare("select * from users where username =?");
         BoundStatement boundStatement = new BoundStatement(ps);
         ResultSet rs = session.execute( boundStatement.bind(username) );
         
