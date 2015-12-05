@@ -15,7 +15,7 @@
         <link rel="stylesheet" type="text/css" href="assets/Styles.css" />
         <link rel="stylesheet" type="text/css" href="assets/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="assets/login.css" />
-        <title>Instagrim :: Login</title>
+        <title>Login</title>
     </head>
     <body>      
         <form method="POST" action="Login" class="form-login">
