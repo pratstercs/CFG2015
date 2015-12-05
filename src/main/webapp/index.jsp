@@ -14,15 +14,8 @@
     </head>
     <body>
         <h1>Go Team 15!</h1>
-        <%
-            ArrayList<String> al = (ArrayList<String>)session.getAttribute("matches");
-            for(String str : al) {
-        %>
-            <table><tr>
-            <%=str%>
-            </tr></table>
-            <%
-            }
-        %>
+        <form method="POST" action="call">
+            <input type="submit" value="Press">
+        </form>
     </body>
 </html>
