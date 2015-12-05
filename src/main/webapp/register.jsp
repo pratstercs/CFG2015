@@ -1,18 +1,27 @@
 <%-- 
-    Document   : register
-    Created on : 04-Dec-2015, 22:25:41
-    Author     : Phil
+    Document   : register.jsp
+    Created on : Sep 28, 2014, 6:29:51 PM
+    Author     : Administrator
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Register</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="assets/Styles.css" />
+        <link rel="stylesheet" type="text/css" href="assets/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/login.css" />
+        <title>Instagrim :: Register</title>
+        <link rel="shortcut icon" href="assets/favicon.ico" />
     </head>
     <body>
-        <script>
+        <a href="index.jsp"><h1>InstaGrim!</h1></a>
+                
+        <form method="POST" action="Register" class="form-login">
+            <script>
                 //function modified from http://keithscode.com/tutorials/javascript/3-a-simple-javascript-password-validator.html
                 function checkPass()
                 {
@@ -40,6 +49,24 @@
                     }
                 }
             </script>
-        <h1>Register!</h1>
+            
+            <h2 class="form-login-header">Register:</h2>
+            <div id="pwdReqs">Password must be at least 6 characters</div>
+                <label for="inputEmail" class="sr-only">Username</label>
+                <input type="text" id="inputUser" name="username" class="form-control" placeholder="Username" required autofocus>
+                
+                <label for="inputEmail" class="sr-only">Email</label>
+                <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email Address" required>
+                
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" name="confPass" class="form-control" placeholder="Password" required>
+                
+                <label for="inputPassword" class="sr-only">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="password" class="form-control" placeholder="Confirm Password" onkeyup="checkPass(); return false;" required>
+            <br/>
+            <div id="confirmMessage"><!--Password match text is inserted here--></div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+            <div class="loginRegister"><a href="login.jsp">Already have an account?</a></div>
+        </form>
     </body>
 </html>
