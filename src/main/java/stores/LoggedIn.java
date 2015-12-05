@@ -2,6 +2,7 @@ package stores;
 
 //import java.util.Date;
 //import java.util.Map;
+import java.util.ArrayList;
 
 /**
  * Class to store the data for the currently logged in user.
@@ -11,12 +12,13 @@ public class LoggedIn {
     boolean loggedin=false;
     
     String username=null;
-    private String encodedPass = null;
     String name=null;
+    private String encodedPass = null;
     int contactTypes;
     String email=null;
     int[] timeList;
     String bio=null;
+    ArrayList<String> interests;
     
     
     /**
@@ -81,5 +83,12 @@ public class LoggedIn {
     }
     public boolean getlogedin(){
         return loggedin;
+    }
+    
+    public void setInterests(ArrayList<String> al) {
+        interests = al;
+    }
+    public ArrayList<String> getInterests() {
+        return interests;
     }
 }
